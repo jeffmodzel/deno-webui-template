@@ -12,7 +12,7 @@
   </head>
 
   <body class="w3-margin">
-    <div class="w3-container w3-blue">
+    <div class="w3-container w3-blue w3-round">
       <h1>This is an app main header</h1>
     </div>
 
@@ -77,6 +77,22 @@
           <h3>3</h3>
         </div>
       </div>
+    </div>
+
+    <div x-data="$store.modal" class="w3-panel w3-border w3-border-blue w3-flex w3-padding w3-round">
+      <h1 class="w3-text-blue">Modal Examples</h1>
+      <button x-on:click="showInfoModal('Sed ut perspiciatis unde omnis iste natus')" class="w3-button w3-info w3-margin w3-round">
+        Info
+      </button>
+      <button x-on:click="showSuccessModal('Sed ut perspiciatis unde omnis iste natus')" class="w3-button w3-success w3-margin w3-round">
+        Success
+      </button>
+      <button x-on:click="showWarningModal('Sed ut perspiciatis unde omnis iste natus')" class="w3-button w3-warning w3-margin w3-round">
+        Warning
+      </button>
+      <button x-on:click="showErrorModal('Sed ut perspiciatis unde omnis iste natus')" class="w3-button w3-danger w3-margin w3-round">
+        Error
+      </button>
     </div>
 
     <div class="w3-container w3-margin-top" x-data="$store.userInformationForm">
@@ -174,19 +190,22 @@
     <!-- The Modal -->
     <div id="modal" class="w3-modal">
       <div class="w3-modal-content w3-animate-zoom">
-        <header class="w3-container w3-blue w3-text-white">
-          <span onclick="document.getElementById('modal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-          <h3>Info</h3>
+        <header id="modalHeader" class="w3-container w3-blue">
+          <h3 id="modalTitle">modal title</h3>
         </header>
 
-        <div class="w3-container w3-white w3-text-gray">
+        <div class="w3-container w3-white w3-text-dark-grey">
           <div class="w3-container">
             <p id="modalMessage">Some text in the Modal..</p>
           </div>
         </div>
 
         <footer class="w3-container w3-padding w3-center">
-          <button class="w3-button w3-blue w3-hover-gray w3-round" onclick="document.getElementById('modal').style.display='none'">
+          <button
+            id="modalOkButton"
+            class="w3-button w3-blue w3-hover-gray w3-round"
+            onclick="document.getElementById('modal').style.display='none'"
+          >
             &nbsp;Ok&nbsp;
           </button>
         </footer>

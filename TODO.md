@@ -14,14 +14,11 @@ add deno fmt
 
 
 
-
-add footer with build number and port info to main page
-
-add footer, force to bottom of page
+add footer, force to bottom of page?
+add health check to footer
 
 update poage store with more stuff - footer
 
-add health check to footer info
 
 implement logger for server side
 

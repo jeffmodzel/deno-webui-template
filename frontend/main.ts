@@ -2,6 +2,7 @@
 import Alpine from 'alpinejs';
 import { APP_TITLE, APP_VERSION, PORT } from '@workspace/lib';
 import { UserInformationService } from './services/UserInformationService.ts';
+import { MODAL_TYPE_ERROR, MODAL_TYPE_INFO, MODAL_TYPE_WARNING, MODAL_TYPE_SUCCESS, showModal } from './modal.ts';
 
 //
 // This is apparently not required, even though Alpine doc says it is
@@ -18,26 +19,20 @@ import { UserInformationService } from './services/UserInformationService.ts';
 // Set the browser title when the script loads
 document.title = APP_TITLE;
 
-// W3.CSS Modal
-// TODO update modal to have different modes (info, error)
-
 const footerStore = {
   display: `${APP_TITLE}  &nbsp;&nbsp;|  &nbsp;&nbsp;Version ${APP_VERSION}  &nbsp;&nbsp;|  &nbsp;&nbsp;Running on port ${PORT}`,
 };
 Alpine.store('footer', footerStore);
 
-const showModal = (msg: string) => {
-  document.getElementById('modal')!.style.display = 'block';
-  const p = document.getElementById('modalMessage');
-  p!.innerText = msg;
-};
+// const showModal = (msg: string) => {
+//   document.getElementById('modal')!.style.display = 'block';
+//   const p = document.getElementById('modalMessage');
+//   p!.innerText = msg;
+// };
 
 const store = {
   display: 'value from alpine store',
-  showModal: function (msg: string) {
-    console.log(`showModal: ${msg}`);
-    showModal(msg);
-  }
+  
 };
 Alpine.store('page', store);
 
@@ -56,7 +51,7 @@ const userInformationFormStore = {
     { name: 'Product Manager', value: 'product manager' },
     { name: 'Doctor', value: 'doctor' },
     { name: 'Lawyer', value: 'lawyer' },
-    { name: 'Other', value: 'other' }    
+    { name: 'Other', value: 'other' }
   ],
   gender: '',
   genders: ['', 'M', 'F'],
@@ -64,15 +59,36 @@ const userInformationFormStore = {
   submit: async function () {
     if (this.firstName.length > 0 && this.lastName.length > 0 && this.age > 0 && this.occupation.length > 0 && this.gender.length > 0) {
       globalThis.alert('Data validation passed'); // use globalThis instead of window
-      showModal('Data validation passed');
+      showModal(MODAL_TYPE_INFO, 'Data validation passed');
       console.log(`submitting form ${this.firstName} | ${this.lastName} | ${this.age} | ${this.occupation} | ${this.gender}`);
       const service = new UserInformationService();
-      service.saveUserInformation({firstName: this.firstName, lastName: this.lastName, age: this.age, occupation: this.occupation, gender: this.gender});
+      service.saveUserInformation({ firstName: this.firstName, lastName: this.lastName, age: this.age, occupation: this.occupation, gender: this.gender });
     } else {
       console.log('data validation failed.');
     }
   },
 };
 Alpine.store('userInformationForm', userInformationFormStore);
+
+
+const modalStore = {
+  showInfoModal: function (msg: string) {
+    console.log(`showModal: ${msg}`);
+    showModal(MODAL_TYPE_INFO, msg);
+  },
+  showSuccessModal: function (msg: string) {
+    console.log(`showModal: ${msg}`);
+    showModal(MODAL_TYPE_SUCCESS, msg);
+  },
+  showWarningModal: function (msg: string) {
+    console.log(`showModal: ${msg}`);
+    showModal(MODAL_TYPE_WARNING, msg);
+  },
+  showErrorModal: function (msg: string) {
+    console.log(`showModal: ${msg}`);
+    showModal(MODAL_TYPE_ERROR, msg);
+  }
+};
+Alpine.store('modal', modalStore);
 
 Alpine.start();
