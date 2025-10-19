@@ -1,6 +1,6 @@
 # Product Overview
 
-**deno-web-ui** is a simple web application built with Deno that combines a web server and frontend UI.
+**deno-webui-template** is a simple web application built that runs on the Deno runtime that combines a web server and frontend UI. Intended for local use only.
 
 ## Key Features
 - Web server with API endpoints (`/api`, `/health`)

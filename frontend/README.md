@@ -24,7 +24,7 @@ npm run build
 Uses Deno bundle command.
 https://docs.deno.com/runtime/reference/bundling/
 
-
+**TODO** Update here about why custom post_bundle.ts script is necessary.
 
 
 CSS framework used for visual styling

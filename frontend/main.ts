@@ -1,6 +1,6 @@
 /// <reference lib="dom" />
 import Alpine from 'alpinejs';
-import { APP_TITLE } from '@workspace/lib';
+import { APP_TITLE, APP_VERSION, PORT } from '@workspace/lib';
 import { UserInformationService } from './services/UserInformationService.ts';
 
 //
@@ -20,6 +20,12 @@ document.title = APP_TITLE;
 
 // W3.CSS Modal
 // TODO update modal to have different modes (info, error)
+
+const footerStore = {
+  display: `${APP_TITLE}  &nbsp;&nbsp;|  &nbsp;&nbsp;Version ${APP_VERSION}  &nbsp;&nbsp;|  &nbsp;&nbsp;Running on port ${PORT}`,
+};
+Alpine.store('footer', footerStore);
+
 const showModal = (msg: string) => {
   document.getElementById('modal')!.style.display = 'block';
   const p = document.getElementById('modalMessage');

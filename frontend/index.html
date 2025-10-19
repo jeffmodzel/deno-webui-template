@@ -1,199 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend App</title>
+    <link rel="stylesheet" href="w3.css">
+    <script defer src="main.ts"></script>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frontend App</title>
-  <link rel="stylesheet" href="w3.css">
-  <script defer src="main.ts"></script>
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-</head>
+  <body class="w3-margin">
+    <div class="w3-container w3-blue">
+      <h1>This is an app main header</h1>
+    </div>
 
-<body class="w3-margin">
-  <div class="w3-container w3-blue">
-    <h1>This is an app main header</h1>
-  </div>
+    <div class="w3-medium"><a href="w3_example.html">w3_example.html</a></div>
+    <div class="w3-medium" x-html="$store.page.display">static</div>
 
-  <div class="w3-medium"><a href="w3_example.html">w3_example.html</a></div>
-  <div class="w3-medium" x-html="$store.page.display">static</div>
+    <div class="w3-container">
+      <p>The w3-container class is an important w3.CSS class.</p>
 
-  <div class="w3-container">
-    <p>The w3-container class is an important w3.CSS class.</p>
+      <table class="w3-table-all w3-margin-top">
+        <thead>
+          <tr class="w3-green">
+            <th>Name</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>Software Engineer</td>
+            <td>Engineering</td>
+            <td>john.doe@example.com</td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>Product Manager</td>
+            <td>Product</td>
+            <td>jane.smith@example.com</td>
+          </tr>
+          <tr>
+            <td>Mike Johnson</td>
+            <td>Designer</td>
+            <td>Design</td>
+            <td>mike.johnson@example.com</td>
+          </tr>
+          <tr>
+            <td>Sarah Wilson</td>
+            <td>Data Analyst</td>
+            <td>Analytics</td>
+            <td>sarah.wilson@example.com</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <table class="w3-table-all w3-margin-top">
-      <thead>
-        <tr class="w3-green">
-          <th>Name</th>
-          <th>Position</th>
-          <th>Department</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>John Doe</td>
-          <td>Software Engineer</td>
-          <td>Engineering</td>
-          <td>john.doe@example.com</td>
-        </tr>
-        <tr>
-          <td>Jane Smith</td>
-          <td>Product Manager</td>
-          <td>Product</td>
-          <td>jane.smith@example.com</td>
-        </tr>
-        <tr>
-          <td>Mike Johnson</td>
-          <td>Designer</td>
-          <td>Design</td>
-          <td>mike.johnson@example.com</td>
-        </tr>
-        <tr>
-          <td>Sarah Wilson</td>
-          <td>Data Analyst</td>
-          <td>Analytics</td>
-          <td>sarah.wilson@example.com</td>
-        </tr>
-      </tbody>
-    </table>
-
-
-
-    <div class="w3-flex">
-      <div class="w3-padding">
-        <button class="w3-button w3-purple w3-margin-top" onclick="getNames()">
-          Get Names
-        </button>
-      </div>
-      <div class="w3-padding" x-data="$store.page">
-        <button class="w3-button w3-blue w3-margin-top" x-on:click="showModal('Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium tot')">
-          Show Modal
-        </button>
-      </div>
-      <div class="w3-padding w3-green">
-        <h3>3</h3>
+      <div class="w3-flex">
+        <div class="w3-padding">
+          <button class="w3-button w3-purple w3-margin-top" onclick="getNames()">
+            Get Names
+          </button>
+        </div>
+        <div class="w3-padding" x-data="$store.page">
+          <button
+            class="w3-button w3-blue w3-margin-top"
+            x-on:click="showModal('Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium tot')"
+          >
+            Show Modal
+          </button>
+        </div>
+        <div class="w3-padding w3-green">
+          <h3>3</h3>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="w3-container w3-margin-top" x-data="$store.userInformationForm">
-    <div class="w3-panel w3-border w3-light-grey">
-      <h3 class="w3-text-blue"><b>User Information Form</b></h3>
-      <h5 x-text="directions"></h5>
+    <div class="w3-container w3-margin-top" x-data="$store.userInformationForm">
+      <div class="w3-panel w3-border w3-light-grey">
+        <h3 class="w3-text-blue"><b>User Information Form</b></h3>
+        <h5 x-text="directions"></h5>
 
-      <form id="userForm" class="w3-container">
-        <div class="w3-row w3-section">
-          <div class="w3-col m6 w3-padding-small">
-            <label class="w3-text-blue"><b>First Name</b></label>
-            <input class="w3-input w3-border" type="text" id="firstName" name="firstName" x-model="firstName" required>
+        <form id="userForm" class="w3-container">
+          <div class="w3-row w3-section">
+            <div class="w3-col m6 w3-padding-small">
+              <label class="w3-text-blue"><b>First Name</b></label>
+              <input class="w3-input w3-border" type="text" id="firstName" name="firstName" x-model="firstName" required>
+            </div>
+            <div class="w3-col m6 w3-padding-small">
+              <label class="w3-text-blue"><b>Last Name</b></label>
+              <input class="w3-input w3-border" type="text" id="lastName" name="lastName" x-model="lastName" required>
+            </div>
           </div>
-          <div class="w3-col m6 w3-padding-small">
-            <label class="w3-text-blue"><b>Last Name</b></label>
-            <input class="w3-input w3-border" type="text" id="lastName" name="lastName" x-model="lastName" required>
-          </div>
-        </div>
 
-        <div class="w3-row w3-section">
-          <div class="w3-col m6 w3-padding-small">
-            <label class="w3-text-blue"><b>Age</b></label>
-            <input class="w3-input w3-border" type="number" id="age" name="age" min="1" max="120" x-model.number="age"
-              required>
+          <div class="w3-row w3-section">
+            <div class="w3-col m6 w3-padding-small">
+              <label class="w3-text-blue"><b>Age</b></label>
+              <input class="w3-input w3-border" type="number" id="age" name="age" min="1" max="120" x-model.number="age" required>
+            </div>
+            <div class="w3-col m6 w3-padding-small">
+              <label class="w3-text-blue"><b>Occupation</b></label>
+              <select class="w3-select w3-border w3-input" id="occupation" name="occupation" required x-model="occupation">
+                <template x-for="x in occupations">
+                  <option x-text="x.name" x-bind:value="x.value" x-bind:disabled="x.value === ''"></option>
+                </template>
+              </select>
+            </div>
           </div>
-          <div class="w3-col m6 w3-padding-small">
-            <label class="w3-text-blue"><b>Occupation</b></label>
-            <select class="w3-select w3-border w3-input" id="occupation" name="occupation" required
-              x-model="occupation">
-              <template x-for="x in occupations">
-                <option x-text="x.name" x-bind:value="x.value" x-bind:disabled="x.value === ''"></option>
-              </template>
-            </select>
-          </div>
-        </div>
 
-        <div class="w3-row w3-section">
-          <div class="w3-col m6 w3-padding-small"></div>
-          <div class="w3-col m6 w3-padding-small">
-            <label class="w3-text-blue"><b>Gender</b></label>
-            <select class="w3-select w3-border w3-input" id="gender" name="gender" required x-model="gender">
-              <template x-for="x in genders">
-                <option x-text="x"></option>
-              </template>
-            </select>
+          <div class="w3-row w3-section">
+            <div class="w3-col m6 w3-padding-small"></div>
+            <div class="w3-col m6 w3-padding-small">
+              <label class="w3-text-blue"><b>Gender</b></label>
+              <select class="w3-select w3-border w3-input" id="gender" name="gender" required x-model="gender">
+                <template x-for="x in genders">
+                  <option x-text="x"></option>
+                </template>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="w3-section">
-          <button type="button" @click="submit()" class="w3-button w3-green w3-margin-right">Submit</button>
-          <button type="button" class="w3-button w3-light-blue" onclick="clearForm()">Clear</button>
-        </div>
-      </form>
+          <div class="w3-section">
+            <button type="button" @click="submit()" class="w3-button w3-green w3-margin-right">Submit</button>
+            <button type="button" class="w3-button w3-light-blue" onclick="clearForm()">Clear</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <script>
-    async function getNames() {
-      try {
-        const response = await fetch('/api/names');
-        const data = await response.json();
+    <script>
+      async function getNames() {
+        try {
+          const response = await fetch('/api/names');
+          const data = await response.json();
 
-        const namesList = data.names.join('\n');
-        alert(
-          `Names from API (${data.count} total):\n\n${namesList}`,
-        );
-      } catch (error) {
-        alert('Error fetching names: ' + error.message);
+          const namesList = data.names.join('\n');
+          alert(
+            `Names from API (${data.count} total):\n\n${namesList}`,
+          );
+        } catch (error) {
+          alert('Error fetching names: ' + error.message);
+        }
       }
-    }
 
-    function clearForm() {
-      document.getElementById('userForm').reset();
-    }
+      function clearForm() {
+        document.getElementById('userForm').reset();
+      }
 
-    // Handle form submission
-    document.addEventListener('DOMContentLoaded', function () {
-      const form = document.getElementById('userForm');
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
+      // Handle form submission
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('userForm');
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
 
-        const formData = new FormData(form);
-        const userData = {
-          firstName: formData.get('firstName'),
-          lastName: formData.get('lastName'),
-          age: parseInt(formData.get('age')),
-          occupation: formData.get('occupation'),
-        };
+          const formData = new FormData(form);
+          const userData = {
+            firstName: formData.get('firstName'),
+            lastName: formData.get('lastName'),
+            age: parseInt(formData.get('age')),
+            occupation: formData.get('occupation'),
+          };
 
-        // Display the collected data (you can modify this to send to an API)
-        alert(
-          `Form Submitted!\n\nName: ${userData.firstName} ${userData.lastName}\nAge: ${userData.age}\nOccupation: ${userData.occupation}`,
-        );
+          // Display the collected data (you can modify this to send to an API)
+          alert(
+            `Form Submitted!\n\nName: ${userData.firstName} ${userData.lastName}\nAge: ${userData.age}\nOccupation: ${userData.occupation}`,
+          );
+        });
       });
-    });
-  </script>
+    </script>
 
-  <!-- The Modal -->
-  <div id="modal" class="w3-modal">
-    <div class="w3-modal-content w3-animate-zoom">
-      <header class="w3-container w3-blue w3-text-white">
-        <span onclick="document.getElementById('modal').style.display='none'"
-          class="w3-button w3-display-topright">&times;</span>
-        <h3>Info</h3>
-      </header>
+    <!-- The Modal -->
+    <div id="modal" class="w3-modal">
+      <div class="w3-modal-content w3-animate-zoom">
+        <header class="w3-container w3-blue w3-text-white">
+          <span onclick="document.getElementById('modal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+          <h3>Info</h3>
+        </header>
 
-      <div class="w3-container w3-white w3-text-gray">
-        <div class="w3-container">
-          <p id="modalMessage">Some text in the Modal..</p>
+        <div class="w3-container w3-white w3-text-gray">
+          <div class="w3-container">
+            <p id="modalMessage">Some text in the Modal..</p>
+          </div>
         </div>
+
+        <footer class="w3-container w3-padding w3-center">
+          <button class="w3-button w3-blue w3-hover-gray w3-round" onclick="document.getElementById('modal').style.display='none'">
+            &nbsp;Ok&nbsp;
+          </button>
+        </footer>
       </div>
-
-      <footer class="w3-container w3-padding w3-center">
-        <button class="w3-button w3-blue w3-hover-gray w3-round" onclick="document.getElementById('modal').style.display='none'">&nbsp;Ok&nbsp;</button>
-      </footer>
     </div>
-  </div>
 
-</body>
-
+    <!-- Footer-->
+    <div class="w3-container w3-round w3-blue" x-data="$store.footer">
+      <h5 x-html="display">Footer</h5>
+    </div>
+  </body>
 </html>
