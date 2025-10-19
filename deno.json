@@ -1,0 +1,39 @@
+{
+  "workspace": [
+    "./frontend",
+    "./webserver",
+    "./lib"
+  ],
+  "tasks": {
+    "build:frontend": "deno task --cwd frontend build",
+    "dev": "deno run --watch main.ts",
+    "dev:frontend": "deno task --cwd frontend dev",
+    "dev:webserver": "deno task --cwd webserver dev",
+    "test": "deno test --allow-all",
+    "test:all": "deno test --allow-all ./frontend/test.ts ./webserver/test.ts ./lib/test.ts"
+  },
+   "fmt": {
+    "useTabs": false,
+    "lineWidth": 140,
+    "indentWidth": 2,
+    "semiColons": true,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "include": [
+      "*.ts",
+      "./frontent/",
+      "./lib/",
+      "./webserver/" 
+    ],
+    "exclude": [
+      "./frontend/dist",
+      "./frontend/assets",      
+      "./frontend/node_modules",
+      "./webserver/node_modules",
+      "./lib/node_modules"
+    ]
+   },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1"
+  }
+}
